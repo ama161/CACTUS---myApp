@@ -1,0 +1,49 @@
+<ion-content padding>
+  <ion-card class="card">
+    <ion-card-content>
+      <ion-card-title text-center>
+        <img width="10%" src="../../assets/cactus.svg" title="restaurant Cactus"/>        
+      </ion-card-title>
+
+      <ion-list>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-8>
+              <ion-item>
+                  <ion-label floating>Email</ion-label>
+                  <ion-input 
+                    [(ngModel)]='email'
+                    type="text">
+                  </ion-input>
+                </ion-item>
+              
+                <ion-item>
+                  <ion-label floating>Password</ion-label>
+                  <ion-input 
+                    [(ngModel)]="password"
+                    type="password">
+                  </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>You agree our Terms?</ion-label>
+                    <ion-checkbox [(ngModel)]="agree"></ion-checkbox>
+                  </ion-item>
+            </ion-col>
+            <ion-col class="btnRegister">
+              <button 
+                ion-button 
+                icon-end 
+                color="light"
+                (click)="onHandleRegister()">
+                Register
+                <ion-icon name="arrow-round-forward"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list>     
+      <p text-center>Have an account? <button class="link" (click)="onHandleLogin()">Login</button></p>      
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+  

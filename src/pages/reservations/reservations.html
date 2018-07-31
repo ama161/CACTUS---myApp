@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <img width="3%" src="../../assets/cactus.svg"/>
+      Reservations
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button 
+    ion-button 
+    icon-end 
+    color="light"
+    (click)="onHandleLogout()">
+    Logout
+    <ion-icon name="person"></ion-icon>
+  </button>
+  <ion-card *ngFor="let key of keysReservations">
+    <ion-card-content>
+      <ion-list>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-auto>
+                <ion-icon 
+                  *ngIf="reservations[key].status === 'pending'"
+                  name="restaurant">
+                </ion-icon>
+                <ion-icon 
+                  *ngIf="reservations[key].status === 'canceled'"
+                  name="restaurant"
+                  class="icon-red">
+                </ion-icon>
+                <ion-icon 
+                  *ngIf="reservations[key].status === 'accepted'"
+                  name="restaurant"
+                  class="icon-green">
+                </ion-icon>
+            </ion-col>
+            <ion-col class="margin-auto" col-10>
+              <ion-row>
+                Date: {{reservations[key].date}} {{reservations[key].time}}
+              </ion-row>
+              <ion-row>
+                Diners: {{reservations[key].diners}} - status reserve: {{reservations[key].status}}
+              </ion-row>
+              <ion-row>
+                {{reservations[key].name}} - {{reservations[key].email}} - {{reservations[key].phone}}
+              </ion-row>
+            </ion-col>
+            <ion-col class="margin-auto">
+              <ion-icon 
+                *ngIf="reservations[key].status === 'pending'" 
+                title="edit reserve" 
+                name="create" 
+                (click)="onHandleEditReserve(key)">
+              </ion-icon>
+              <ion-icon 
+                *ngIf="reservations[key].status !== 'canceled'"
+                title="cancel reserve" 
+                name="close-circle" 
+                (click)="presentConfirm(key)">
+              </ion-icon>              
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+  

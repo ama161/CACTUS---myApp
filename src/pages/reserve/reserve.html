@@ -1,0 +1,102 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        <img width="3%" src="../../assets/cactus.svg"/>        
+        Reserve
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-card>
+      <ion-card-content>
+        <ion-list>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label floating>Name *</ion-label>
+                  <ion-input 
+                    [(ngModel)]='reserve.name'
+                    type="text">
+                  </ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-label floating>Email *</ion-label>
+                  <ion-input 
+                    [(ngModel)]="reserve.email"
+                    type="email"
+                    autocorrect="on">
+                  </ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-label floating>Phone *</ion-label>
+                  <ion-input 
+                    [(ngModel)]='reserve.phone'
+                    type="tel">
+                  </ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label floating>Diners *</ion-label>
+                  <ion-input 
+                    [(ngModel)]="reserve.diners"
+                    type="number">
+                  </ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-label floating>Date *</ion-label>
+                  <ion-datetime 
+                    displayFormat="MM/DD/YYYY" 
+                    [(ngModel)]="reserve.date">
+                  </ion-datetime>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-label floating>Time *</ion-label>
+                  <ion-datetime 
+                    displayFormat="HH:mm" 
+                    [(ngModel)]="reserve.time">
+                  </ion-datetime>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="btnLogin">
+                <button 
+                  *ngIf="!idReserve"
+                  ion-button 
+                  icon-end 
+                  color="light"
+                  (click)="onClickReserve()">
+                  Reserve
+                  <ion-icon name="arrow-round-forward"></ion-icon>
+                </button>
+                <button 
+                  *ngIf="idReserve"
+                  ion-button 
+                  icon-end 
+                  color="light"
+                  (click)="onEditReserve()">
+                  Edit Reserve
+                  <ion-icon name="arrow-round-forward"></ion-icon>
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-list>
+
+      </ion-card-content>
+    </ion-card>
+</ion-content>
+  
